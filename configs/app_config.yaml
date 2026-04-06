@@ -1,0 +1,69 @@
+app:
+  name: Virtue Health Planning Copilot
+  environment: local
+  default_query_limit: 10
+  default_vector_top_k: 8
+  conservative_mode: true
+  trace_logging_enabled: true
+
+paths:
+  raw_csv_path: ""
+  local_output_dir: .local_outputs
+  vector_index_dir: .local_outputs/vector_index
+  eval_output_dir: .local_outputs/evals
+
+tables:
+  bronze_vf_ghana_raw: bronze_vf_ghana_raw
+  silver_vf_organizations: silver_vf_organizations
+  gold_facility_master: gold_facility_master
+  gold_ngo_master: gold_ngo_master
+  gold_region_summary: gold_region_summary
+  gold_facility_facts_long: gold_facility_facts_long
+
+ingestion:
+  csv_engine: auto
+  delimiter: ","
+  encoding: utf-8
+  infer_schema: true
+  expected_columns:
+    - unique_id
+    - name
+    - facilityTypeId
+    - operatorTypeId
+    - region
+    - city
+    - country
+    - specialties
+    - procedure
+    - equipment
+    - capability
+    - description
+    - doctor_count
+    - capacity
+    - area
+    - phone_numbers
+    - websites
+    - affiliationTypeIds
+
+retrieval:
+  mode: hybrid
+  vector_doc_template: "{facility_name} | {region} | {facility_type} | {fact_type} | {fact_text}"
+  structured_default_limit: 25
+  vector_default_limit: 8
+  use_faiss_if_available: true
+
+ui:
+  show_debug_panels: false
+  default_map_metric: medical_desert_risk_score
+  default_specialty_filter: ""
+  default_region_filter: ""
+  default_facility_type_filter: ""
+
+mlflow:
+  enabled: false
+  experiment_name: ""
+
+databricks:
+  catalog: ""
+  schema: ""
+  use_unity_catalog: true

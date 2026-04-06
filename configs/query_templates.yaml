@@ -1,0 +1,35 @@
+query_families:
+  facility_lookup:
+    - what services does {facility_name} appear to offer
+    - tell me about {facility_name}
+  count_ranking:
+    - which regions have the most {specialty} facilities
+    - how many facilities in {region}
+  service_search:
+    - which regions have facilities for {specialty}
+    - where can patients access {procedure}
+  anomaly_detection:
+    - which facilities may be overstating capabilities
+    - show suspicious facility claims
+  region_gap_analysis:
+    - where are care deserts for {specialty}
+    - which regions lack {specialty}
+  planner_recommendation:
+    - what regions need NGO or infrastructure attention
+    - where should planners focus next
+  ngo_analysis:
+    - where are ngos active
+    - which regions have ngo support
+
+sql_templates:
+  count_by_region: |
+    SELECT region, COUNT(*) AS facility_count
+    FROM {gold_facility_master}
+    WHERE 1 = 1
+    GROUP BY region
+    ORDER BY facility_count DESC
+  anomalies: |
+    SELECT unique_id, name, region, anomaly_score
+    FROM {gold_facility_master}
+    WHERE anomaly_score >= {threshold}
+    ORDER BY anomaly_score DESC

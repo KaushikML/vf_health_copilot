@@ -1,0 +1,37 @@
+bundle:
+  name: vf-health-copilot
+
+variables:
+  catalog:
+    description: TODO: Set a Databricks catalog name during deployment.
+    default: main
+  schema:
+    description: TODO: Set a Databricks schema name during deployment.
+    default: vf_health_copilot
+  raw_csv_path:
+    description: TODO: Point this to the real Ghana healthcare CSV in Databricks storage.
+    default: /Volumes/${var.catalog}/${var.schema}/raw/ghana_healthcare_facilities.csv
+  sql_warehouse_id:
+    description: TODO: Provide a SQL warehouse ID for Databricks SQL workloads.
+    default: ""
+  serving_endpoint_name:
+    description: Optional future endpoint for model-backed reasoning.
+    default: ""
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: ${env.DATABRICKS_HOST}
+    run_as:
+      user_name: ${env.DATABRICKS_USER}
+
+sync:
+  include:
+    - configs/**
+    - notebooks/**
+    - src/**
+    - data/**
+
+# TODO: Add Databricks job resources and app resources after workspace details are known.

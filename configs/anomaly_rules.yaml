@@ -1,0 +1,19 @@
+weights:
+  procedure_without_support: 0.35
+  over_broad_small_facility: 0.30
+  specialty_infrastructure_mismatch: 0.20
+  evidence_thinness: 0.15
+
+thresholds:
+  over_broad_service_breadth: 5
+  small_facility_size_proxy: 2.5
+  low_infrastructure_depth: 1.5
+  low_support_ratio: 0.4
+  thin_evidence_count: 2
+  high_anomaly_score: 0.65
+  medium_anomaly_score: 0.35
+
+severity_labels:
+  high: high
+  medium: medium
+  low: low

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "q1",
+    "family": "service search",
+    "prompt": "Which regions have facilities for cardiology?"
+  },
+  {
+    "id": "q2",
+    "family": "facility lookup",
+    "prompt": "What services does Tema General Hospital appear to offer?"
+  },
+  {
+    "id": "q3",
+    "family": "anomaly detection",
+    "prompt": "Which facilities may be overstating capabilities?"
+  },
+  {
+    "id": "q4",
+    "family": "planner recommendation",
+    "prompt": "What regions need NGO or infrastructure attention?"
+  }
+]
