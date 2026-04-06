@@ -269,7 +269,7 @@ Run notebooks in order:
 
 ## Demo
 
-Add your demo video link here.
+https://drive.google.com/file/d/19lJ7ym6iQ2djBriEUWckshJ37v9cUv61/view?usp=sharing
 
 ---
 
