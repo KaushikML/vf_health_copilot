@@ -21,9 +21,9 @@ from map_views import build_region_metric_map
 # =========================
 # CONFIG
 # =========================
-HOST = "dbc-b1ebec05-46c3.cloud.databricks.com"
-HTTP_PATH = "/sql/1.0/warehouses/c4dabe06b0ec1750"
-TOKEN = "dapi86030567b0e15a0dcd5c706ef17e6607"
+HOST = ""
+HTTP_PATH = ""
+TOKEN = ""
 
 FACILITY_TABLE = "workspace.default.gold_facility_master"
 REGION_TABLE = "workspace.default.gold_region_summary"
